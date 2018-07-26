@@ -1,21 +1,22 @@
-<dl>
-  <dt>Start:</dt>
-  <dt><input type="text" id="AddressStart"> <button witdh="120px" id="StartBtn">Search</button><br /> </dt>
-  <dt><input type="hidden" id="latStart" title="Latitude" value="52.0765137"> </dt>
-  <dt><input type="hidden" id="lngStart" title="Longitude" value="4.3945939"></dt>
-</dl>
-<dl>
-  <dt>End:</dt>
-  <dt><input type="text" id="AddressEnd"> <button witdh="120px" id="EndBtn">Search</button><br /></dt>
-  <dt><input type="hidden" id="latEnd" title="Latitude" value="50.842937"></dt>
-  <dt><input type="hidden" id="lngEnd" title="Longitude" value="4.384947"></dt>
-</dl>
-<button witdh="120px" id="plot">Plot</button>
-<button witdh="120px" id="move">Move</button>
-<div>
-  <label id="distance"></label><br />
-  <label id="duration"></label>
-</div>
+<div class="LeftSide">
+  <dl>
+    <dt>Start:</dt>
+    <dt><input type="text" id="AddressStart"> <button witdh="120px" id="StartBtn">Search</button><br /> </dt>
+    <dt><input type="hidden" id="latStart" title="Latitude" value="52.0765137"> </dt>
+    <dt><input type="hidden" id="lngStart" title="Longitude" value="4.3945939"></dt>
+  </dl>
+  <dl>
+    <dt>End:</dt>
+    <dt><input type="text" id="AddressEnd"> <button witdh="120px" id="EndBtn">Search</button><br /></dt>
+    <dt><input type="hidden" id="latEnd" title="Latitude" value="50.842937"></dt>
+    <dt><input type="hidden" id="lngEnd" title="Longitude" value="4.384947"></dt>
+  </dl>
+  <button witdh="120px" id="plot">Plot</button>
+  <button witdh="120px" id="move">Move</button>
+  <div>
+    <label id="distance"></label><br />
+    <label id="duration"></label>
+  </div>
 
   <table>
     <tr>
@@ -34,4 +35,4 @@
     Speed<br />
     <input type="range" id="speedBar" min="1" max="1000" value="40" class="slider">
   </div>
-
+</div>
