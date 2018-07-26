@@ -1,33 +1,37 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>NCIM_DroneView</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<dl>
+  <dt>Start:</dt>
+  <dt><input type="text" id="AddressStart"> <button witdh="120px" id="StartBtn">Search</button><br /> </dt>
+  <dt><input type="hidden" id="latStart" title="Latitude" value="52.0765137"> </dt>
+  <dt><input type="hidden" id="lngStart" title="Longitude" value="4.3945939"></dt>
+</dl>
+<dl>
+  <dt>End:</dt>
+  <dt><input type="text" id="AddressEnd"> <button witdh="120px" id="EndBtn">Search</button><br /></dt>
+  <dt><input type="hidden" id="latEnd" title="Latitude" value="50.842937"></dt>
+  <dt><input type="hidden" id="lngEnd" title="Longitude" value="4.384947"></dt>
+</dl>
+<button witdh="120px" id="plot">Plot</button>
+<button witdh="120px" id="move">Move</button>
+<div>
+  <label id="distance"></label><br />
+  <label id="duration"></label>
 </div>
+
+  <table>
+    <tr>
+      <td><label class="container"><input type="radio" id="chkStatic" checked="checked" name="radio">Static map<span class="checkmark"></span></label></td>
+    </tr>
+    <tr>
+      <td><label class="container"><input type="radio" id="chkCenter" name="radio">Center<span class="checkmark"></span></label></td>
+    </tr>
+    <tr>
+      <td><label class="container"><input type="radio" id="chkInbounds" name="radio">Inbounds<span class="checkmark"></span></label></td>
+    </tr>
+  </table>
+
+
+  <div class="slidecontainer">
+    Speed<br />
+    <input type="range" id="speedBar" min="1" max="1000" value="40" class="slider">
+  </div>
+
