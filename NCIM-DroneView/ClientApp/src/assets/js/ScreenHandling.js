@@ -16,6 +16,46 @@ window.onload = function () {
 
 
 
+  function Move(mapsPath) {
+
+    position[0] = parseFloat(mapsPath.getArray()[0].lat()).toFixed(5);
+    position[1] = parseFloat(mapsPath.getArray()[0].lng()).toFixed(5);
+    var latlng = new google.maps.LatLng(position[0], position[1]);
+    doStuff(latlng);
+
+    var len = mapsPath.getArray().length;
+    var latlngArray = new Array(len);
+    for (var i = 0; i < len; i++) {
+      var newPosition = [parseFloat(mapsPath.getArray()[0].lat()).toFixed(5), parseFloat(mapsPath.getArray()[0].lng()).toFixed(5)];
+      latlngArray[i] = newPosition;
+    }
+    function waitForIt() {
+      console.log("ARRAY Length: " + len);
+      var i = 0;
+      while (i < len) {
+        console.log("CHECK isBusy: " + isBusy);
+        if (isBusy == true) {
+          console.log("TIMEOUT: ");
+          setTimeout(function () { waitForIt() }, 100);
+        }
+        else {
+          var latlng = new google.maps.LatLng(parseFloat(mapsPath.getArray()[i].lat()).toFixed(5), parseFloat(mapsPath.getArray()[i].lng()).toFixed(5));
+          console.log("NEW: " + latlng);
+          doStuff(latlng);
+          i++;
+        }
+      }
+    }
+    waitForIt();
+
+    function doStuff(latlng) {
+      marker.animateTo(latlng, { easing: 'linear', duration: 1000 });
+    }
+
+    console.log("Done Moving: " + position[0] + "," + position[1]);
+  }
+
+
 
   function sleep(miliseconds) {
     return new Promise((resolve) => setTimeout(resolve, miliseconds));
@@ -229,4 +269,3 @@ function initMap() {
     }
   }
 }
-
